@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knock Portal</title>
+    <link rel="stylesheet" href="land_page.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img src="L.png" alt="Left Logo" class="logo">
+            <nav class="nav-bar">
+                <div class="menu-toggle">
+                    <div class="menu-icon">&#9776;</div>
+                    <ul class="menu-dropdown" id="menuDropdown">
+                        <li id="signup-link"><a href="signup_page.html">Sign Up</a></li>
+                        <li class="hidden" id="form-link"><a href="land_page.html">KnockForm</a></li>
+                        <li class="hidden" id="analysis-link"><a href="analysis_page.html">Analysis</a></li>
+                        <li class="hidden" id="account-link"><a href="account_page.html">Account</a></li>
+                        <li class="hidden" id="logout-link"><a href="signup_page.html" onclick="logout()">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h2><span class="telugu">మీ ఫిర్యాదును నమోదు చేయండి</span> / Register your Knock</h2>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <label for="name"><span class="telugu">ప్రతినిధి పేరు</span> / Name of the Representative</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="date"><span class="telugu">తేదీ</span> / Knock-Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="district"><span class="telugu">జిల్లా పేరు</span> / Name of the District</label>
+            <select id="district" name="district" required>
+                <option value="" disabled selected>Select District</option>
+                <option value="district1">Alluri Sitharama Raju</option>
+                <option value="district2">Anakapalli</option>
+                <option value="district3">District 3</option>
+                <option value="district4">District 4</option>
+            </select>
+
+            <label for="mandal"><span class="telugu">మండలం పేరు</span> / Name of the Mandal</label>
+            <select id="mandal" name="mandal" required>
+                <option value="" disabled selected>Select Mandal</option>
+                
+            </select>
+
+            <label for="village"><span class="telugu">గ్రామం పేరు</span> / Name of the Village</label>
+            <input type="text" id="village" name="village" required>
+
+            <label for="category"><span class="telugu">మీ ఫిర్యాదు వర్గం</span> / Category of your Knock</label>
+            <select id="category" name="category" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="infrastructure">Infrastructure</option>
+                <option value="health">Health</option>
+                <option value="education">Education</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="priority"><span class="telugu">ఫిర్యాదు యొక్క ప్రాధాన్యత</span> / Priority of Problem</label>
+            <select id="priority" name="priority" required>
+                <option value="" disabled selected>Select Priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+            </select>
+
+            <label for="description"><span class="telugu">మీ ఫిర్యాదును వివరించండి</span> / Describe your Knock</label>
+            <textarea id="description" name="description" rows="5" required></textarea>
+
+            <label for="image"><span class="telugu">ఫిర్యాదు యొక్క చిత్రాన్ని అప్‌లోడ్ చేయండి</span> / Upload an Image</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Knock Ladder. All rights reserved.</p>
+    </footer>
+
+    <script src="land_page.js"></script>
+</body>
+</html>
