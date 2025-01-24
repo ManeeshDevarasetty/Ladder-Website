@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="analysis_page.css">
+    <script src="analysis_page.js" defer></script>
+    <title>Rural Insight Hub</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="L.png" alt="Left Logo" class="logo">
+            <nav class="nav-bar">
+                <div class="menutoggle">
+                    <div class="menuicon">&#9776;</div>
+                    <ul class="menudropdown" id="menuDropdown">
+                        <li id="signup-link"><a href="signup_page.html">Sign Up</a></li>
+                        <li class="hidden" id="form-link"><a href="land_page.html">KnockForm</a></li>
+                        <li class="hidden" id="analysis-link"><a href="analysis_page.html">Analysis</a></li>
+                        <li class="hidden" id="account-link"><a href="accountpage.html">Account</a></li>
+                        <li class="hidden" id="logout-link"><a href="signup_page.html" onclick="logout()">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>ABOUT THE DASHBOARD</h2>
+            <p>Track your village's progress and address issues effectively.</p>
+            <p>Navigate through the tabs to access detailed reports and insights.</p>
+        </section>
+
+        <section class="testimonials" id="testimonial-cards">
+            <!-- Testimonial cards will be populated dynamically -->
+        </section>
+
+        <!-- Checklist Section -->
+        <section class="checklist">
+            <h2>Checklist</h2>
+            <div class="unsolved-section">
+                <h3>Unsolved Problems</h3>
+                <table id="unsolved-table">
+                    <thead>
+                        <tr>
+                            <th>Done</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Village</th>
+                            <th>Risk Factor</th>
+                            <th>Problem Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" onchange="toggleProblem(this)"></td>
+                            <td>
+                                <select>
+                                    <option value="1">Danger</option>
+                                    <option value="2">Critical</option>
+                                    <option value="3">High</option>
+                                    <option value="4">Medium</option>
+                                    <option value="5">Low</option>
+                                </select>
+                            </td>
+                            <td>2024-12-01</td>
+                            <td>Village A</td>
+                            <td>High</td>
+                            <td>Road repair needed</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" onchange="toggleProblem(this)"></td>
+                            <td>
+                                <select>
+                                    <option value="1">Danger</option>
+                                    <option value="2">Critical</option>
+                                    <option value="3">High</option>
+                                    <option value="4">Medium</option>
+                                    <option value="5">Low</option>
+                                </select>
+                            </td>
+                            <td>2024-12-02</td>
+                            <td>Village B</td>
+                            <td>Medium</td>
+                            <td>Water pipeline issue</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" onchange="toggleProblem(this)"></td>
+                            <td>
+                                <select>
+                                    <option value="1">Danger</option>
+                                    <option value="2">Critical</option>
+                                    <option value="3">High</option>
+                                    <option value="4">Medium</option>
+                                    <option value="5">Low</option>
+                                </select>
+                            </td>
+                            <td>2024-12-03</td>
+                            <td>Village C</td>
+                            <td>Low</td>
+                            <td>Electricity shortage</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" onchange="toggleProblem(this)"></td>
+                            <td>
+                                <select>
+                                    <option value="1">Danger</option>
+                                    <option value="2">Critical</option>
+                                    <option value="3">High</option>
+                                    <option value="4">Medium</option>
+                                    <option value="5">Low</option>
+                                </select>
+                            </td>
+                            <td>2024-12-04</td>
+                            <td>Village D</td>
+                            <td>Critical</td>
+                            <td>Flooding risk</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" onchange="toggleProblem(this)"></td>
+                            <td>
+                                <select>
+                                    <option value="1">Danger</option>
+                                    <option value="2">Critical</option>
+                                    <option value="3">High</option>
+                                    <option value="4">Medium</option>
+                                    <option value="5">Low</option>
+                                </select>
+                            </td>
+                            <td>2024-12-05</td>
+                            <td>Village E</td>
+                            <td>High</td>
+                            <td>Road repair needed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="solved-section">
+                <h3>Solved Problems</h3>
+                <table id="solved-table">
+                    <thead>
+                        <tr>
+                            <th>Done</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Village</th>
+                            <th>Risk Factor</th>
+                            <th>Problem Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Solved problems will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts">
+            <h2>Village Development Insights</h2>
+            <div id="chart-container">
+                <!-- Placeholder for dynamic charts -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 Rural Insight Hub. All Rights Reserved.
+    </footer>
+
+    <script>
+        // Function to update testimonial cards with the first 4 unsolved problems
+        function updateTestimonialCards() {
+            const unsolvedRows = document.querySelectorAll('#unsolved-table tbody tr');
+            const testimonialContainer = document.getElementById('testimonial-cards');
+            testimonialContainer.innerHTML = ''; // Clear the existing cards
+
+            // Loop through the first 4 unsolved problems and create testimonial cards
+            for (let i = 0; i < Math.min(4, unsolvedRows.length); i++) {
+                const row = unsolvedRows[i];
+                const date = row.cells[2].innerText;
+                const village = row.cells[3].innerText;
+                const riskFactor = row.cells[4].innerText;
+
+                const testimonialCard = document.createElement('div');
+                testimonialCard.classList.add('testimonial-card');
+                testimonialCard.innerHTML = `
+                    <h3>Problem ${i + 1}</h3>
+                    <p><strong>Date:</strong> ${date}</p>
+                    <p><strong>Village:</strong> ${village}</p>
+                    <p><strong>Risk Factor:</strong> ${riskFactor}</p>
+                `;
+                testimonialContainer.appendChild(testimonialCard);
+            }
+        }
+
+        // Call the function to update testimonial cards when the page loads
+        window.onload = updateTestimonialCards;
+
+        // Function to handle when a checkbox is toggled
+        function toggleProblem(checkbox) {
+            const row = checkbox.closest('tr');
+            const unsolvedTable = document.getElementById('unsolved-table').querySelector('tbody');
+            const solvedTable = document.getElementById('solved-table').querySelector('tbody');
+            
+            if (checkbox.checked) {
+                // Move to Solved
+                solvedTable.appendChild(row);
+            } else {
+                // Move to Unsolved
+                unsolvedTable.appendChild(row);
+            }
+
+            // Update testimonial cards
+            updateTestimonialCards();
+        }
+    </script>
+</body>
+</html>

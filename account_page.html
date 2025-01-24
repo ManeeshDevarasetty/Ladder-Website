@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile Page</title>
+  <link rel="stylesheet" href="account_page.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+        <img src="L.png" alt="Left Logo" class="logo">
+        <nav class="nav-bar">
+            <div class="menu-toggle">
+                <div class="menu-icon">&#9776;</div>
+                <ul class="menu-dropdown" id="menuDropdown">
+                    <li id="signup-link"><a href="signup_page.html">Sign Up</a></li>
+                    <li class="hidden" id="form-link"><a href="land_page.html">KnockForm</a></li>
+                    <li class="hidden" id="analysis-link"><a href="analysis_page.html">Analysis</a></li>
+                    <li class="hidden" id="account-link"><a href="accountpage.html">Account</a></li>
+                    <li class="hidden" id="logout-link"><a href="signup_page.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+  <!-- Profile Container -->
+  <div class="profile-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="profile-picture">
+        <img src="https://via.placeholder.com/100" alt="Profile Picture">
+        <button class="edit-photo-btn">Edit</button>
+      </div>
+      <h3 class="username">John Doe</h3>
+      <ul class="nav">
+        <li data-tab="account" class="active">Account Settings</li>
+        <li data-tab="password">Password</li>
+        <li data-tab="security">Security</li>
+        <li data-tab="application">Application</li>
+        <li data-tab="notifications">Notifications</li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Account Settings Tab -->
+      <div class="tab-content" id="account">
+        <h2>Account Settings</h2>
+        <form>
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" placeholder="Enter First Name">
+
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" placeholder="Enter Last Name">
+
+          <label for="email">Email</label>
+          <input type="email" id="email" value="johndoe@example.com" disabled>
+
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" placeholder="Enter Phone Number">
+
+          <label for="company">Company</label>
+          <input type="text" id="company" placeholder="Enter Company Name">
+
+          <label for="designation">Designation</label>
+          <input type="text" id="designation" placeholder="Enter Designation">
+
+          <label for="bio">Bio</label>
+          <textarea id="bio" rows="5" placeholder="Write about yourself"></textarea>
+
+          <button type="submit" class="update-btn">Update</button>
+          <button type="reset" class="cancel-btn">Cancel</button>
+        </form>
+      </div>
+
+      <!-- Password Tab -->
+      <div class="tab-content" id="password">
+        <h2>Change Password</h2>
+        <form>
+          <label for="current-password">Current Password</label>
+          <input type="password" id="current-password" placeholder="Enter Current Password">
+
+          <label for="new-password">New Password</label>
+          <input type="password" id="new-password" placeholder="Enter New Password">
+
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" placeholder="Re-enter New Password">
+
+          <button type="submit" class="update-btn">Change Password</button>
+        </form>
+      </div>
+
+      <!-- Security Tab -->
+      <div class="tab-content" id="security">
+        <h2>Security</h2>
+        <label>
+          <input type="checkbox"> Enable Two-Factor Authentication
+        </label>
+        <h3>Login History</h3>
+        <ul class="login-history">
+          <li>Last login: Jan 20, 2025, 10:45 AM, New York</li>
+          <li>Last login: Jan 18, 2025, 2:12 PM, San Francisco</li>
+        </ul>
+      </div>
+
+      <!-- Application Tab -->
+      <div class="tab-content" id="application">
+        <h2>Application Preferences</h2>
+        <label>
+          <input type="checkbox"> Enable Dark Mode
+        </label>
+        <label>
+          <input type="checkbox"> Enable Notifications
+        </label>
+      </div>
+
+      <!-- Notifications Tab -->
+      <div class="tab-content" id="notifications">
+        <h2>Notification Settings</h2>
+        <label>
+          <input type="checkbox"> Email Notifications
+        </label>
+        <label>
+          <input type="checkbox"> SMS Notifications
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script src="account_page.js"></script>
+</body>
+</html>
